@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import regImg from '../../../images/reg.png'
+import regImg from '../../../images/reg.jpg'
 import './Register.css'
 
 
