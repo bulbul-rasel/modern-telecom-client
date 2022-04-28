@@ -4,6 +4,8 @@ import AddProduct from './Pages/Home/AddProduct/AddProduct';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import ProductsDetail from './Pages/ProductsDetail/ProductsDetail';
 import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 
@@ -15,6 +17,9 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/product/:productId' element={<RequireAuth>
+          <ProductsDetail></ProductsDetail>
+        </RequireAuth>}></Route>
         <Route path='/addProduct' element={<AddProduct></AddProduct>}></Route>
 
         <Route path='/register' element={<Register></Register>}></Route>
