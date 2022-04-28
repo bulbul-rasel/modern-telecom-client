@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
+import './header.css'
+import logo from '../../../images/Telecom_logo.png'
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -12,10 +14,10 @@ const Header = () => {
     }
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" sticky='top' variant="dark">
+            <Navbar className='header' collapseOnSelect expand="lg" sticky='top' variant="dark">
                 <Container>
                     <Navbar.Brand as={Link} to="/">
-                        Modern Telecom
+                        <img style={{ width: '80px' }} src={logo} alt="" />Modern Telecom
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
