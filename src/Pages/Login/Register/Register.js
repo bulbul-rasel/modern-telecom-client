@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import regImg from '../../../images/reg.jpg'
+import SocialLogin from '../../Shared/SociaLogin/SocialLogin';
 import './Register.css'
 
 
@@ -73,22 +74,7 @@ const Register = () => {
                     </Button>
                     <p>New to Modern Telecom? <Link to={'/login'} className='text-info text-decoration-none' onClick={navigateLogin}> Please Login</Link ></p>
                 </Form>
-
-                {/* <form onSubmit={handleRegister}>
-                    <input className='' type="text" placeholder='Enter your name' />
-                    <input className='' type="email" name="email" id="" placeholder='Please Enter Email' required />
-                    <input className='' type="password" name="password" id="" placeholder='Place Enter Your Password' required />
-                    <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
-                    <label className={agree ? "" : "text-info"} htmlFor="terms"> Accept Terms and Condition</label>
-                    <input
-                        disabled={!agree}
-                        className='w-100 rounded-pill btn btn-info'
-                        type="submit"
-                        value="Register" />
-
-                    <p>New to Modern telecom? <Link to={'/login'} className='text-info text-decoration-none' onClick={navigateLogin}> Please Login</Link ></p>
-                </form> */}
-
+                <SocialLogin></SocialLogin>
                 <ToastContainer></ToastContainer>
             </div>
         </div>
