@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from 'react';
+import { useForm } from "react-hook-form";
 import { Button, Form } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddProduct = () => {
 
@@ -16,8 +18,15 @@ const AddProduct = () => {
 
         };
         const { data } = await axios.post("http://localhost:5000/products", product);
+        if (!data.success) {
+            return toast.error(data.error)
+        }
+
+        toast.success(data.message)
+
         console.log(data);
     }
+
 
     return (
         <div>
@@ -57,7 +66,7 @@ const AddProduct = () => {
                     <Button className='mx-auto w-100 rounded-pill' variant="" type="submit">
                         Add Product
                     </Button>
-
+                    <ToastContainer></ToastContainer>
                 </Form>
             </div>
         </div>
