@@ -17,7 +17,7 @@ const Products = () => {
                 <h2 className='title-lr text-center mt-5 mb-3 '>Products </h2>
                 <div className="products-container">
                     {
-                        products.map(product => <Product
+                        products.slice(0, 6).map(product => <Product
                             key={product._id}
                             product={product}
                         ></Product>)

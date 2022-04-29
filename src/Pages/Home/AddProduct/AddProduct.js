@@ -2,10 +2,12 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Button, Form } from 'react-bootstrap';
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
-
+    const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
         const product = {
@@ -23,6 +25,10 @@ const AddProduct = () => {
         }
 
         toast.success(data.message)
+        navigate('/manageItem')
+
+
+
 
         console.log(data);
     }
