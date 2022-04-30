@@ -4,19 +4,33 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 
 const MyItem = () => {
     const [user] = useAuthState(auth);
     const [myItem, setMyItem] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const myItem = async () => {
             const email = user.email;
             const url = `http://localhost:5000/myitem?email=${email}`
-            const { data } = await axios.get(url);
-            setMyItem(data)
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                setMyItem(data);
+            } catch (error) {
+                toast(error.message);
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth);
+                    navigate('/login')
+                }
+            }
         }
         myItem();
 
