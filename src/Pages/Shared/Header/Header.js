@@ -35,6 +35,12 @@ const Header = () => {
                             }
                             {
                                 user ?
+                                    <Nav.Link className='mt-2' as={Link} to="myItem">My Item</Nav.Link>
+                                    :
+                                    ""
+                            }
+                            {
+                                user ?
                                     <Nav.Link className='mt-2' as={Link} to="manageItem">Manage Item</Nav.Link>
                                     :
                                     ""

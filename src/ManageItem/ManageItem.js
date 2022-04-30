@@ -32,6 +32,7 @@ const ManageItem = () => {
 
     return (
         <div>
+            <h2 className="title-lr text-center">All Items</h2>
             <table className="table table-success table-striped">
                 <thead>
                     <tr>

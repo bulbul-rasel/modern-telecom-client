@@ -5,13 +5,17 @@ import { Button, Form } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const AddProduct = () => {
+    const [user] = useAuthState(auth)
     const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
         const product = {
             name: event.target.name.value,
+            email: event.target.email.value,
             image: event.target.image.value,
             description: event.target.description.value,
             price: event.target.price.value,
@@ -28,8 +32,6 @@ const AddProduct = () => {
         navigate('/manageItem')
 
 
-
-
         console.log(data);
     }
 
@@ -42,6 +44,11 @@ const AddProduct = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Name</Form.Label>
                         <Form.Control className=' ' name='name' type="text" placeholder="Enter Product Name" required />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control className=' ' value={user.email} name='email' type="text" placeholder="Enter Email" readOnly />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">

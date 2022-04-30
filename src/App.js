@@ -6,6 +6,7 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
+import MyItem from './Pages/MyItem/MyItem';
 import ProductsDetail from './Pages/ProductsDetail/ProductsDetail';
 import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
@@ -26,6 +27,9 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/manageItem' element={<RequireAuth>
           <ManageItem></ManageItem>
+        </RequireAuth>}></Route>
+        <Route path='/myItem' element={<RequireAuth>
+          <MyItem></MyItem>
         </RequireAuth>}></Route>
 
         <Route path='/register' element={<Register></Register>}></Route>
