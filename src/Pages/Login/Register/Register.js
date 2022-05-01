@@ -8,6 +8,8 @@ import auth from '../../../firebase.init';
 import regImg from '../../../images/reg.jpg'
 import SocialLogin from '../../Shared/SociaLogin/SocialLogin';
 import './Register.css'
+import useToken from '../../hookes/useToken';
+import Loading from '../../Shared/Loading/Loading';
 
 
 const Register = () => {
@@ -22,9 +24,14 @@ const Register = () => {
     const [user1, loading1] = useAuthState(auth);
     const [agree, setAgree] = useState(false);
     const navigate = useNavigate();
+    const [token] = useToken(user);
 
-    if (user1) {
-        console.log("user", user1);
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
+
+    if (token) {
+        navigate('/login')
     }
 
     const handleRegister = async (event) => {

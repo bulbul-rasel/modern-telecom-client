@@ -9,6 +9,7 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import loginImg from '../../../images/login.svg'
 import SocialLogin from '../../Shared/SociaLogin/SocialLogin';
 import axios from 'axios';
+import useToken from '../../hookes/useToken';
 
 const Login = () => {
 
@@ -19,6 +20,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [updatePassword, updating] = useUpdatePassword(auth);
+    // const [token] = useToken(user)
 
     const emailRef = useRef('');
     const passwordRef = useRef('');
