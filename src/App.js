@@ -9,8 +9,10 @@ import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import MyItem from './Pages/MyItem/MyItem';
 import ProductsDetail from './Pages/ProductsDetail/ProductsDetail';
+import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import Subscribe from './Pages/Shared/Subscribe/Subscribe';
 
 function App() {
   return (
@@ -35,8 +37,10 @@ function App() {
 
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/blogs' element={<Blog></Blog>}></Route>
+        <Route path='/subscribe' element={<Subscribe></Subscribe>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

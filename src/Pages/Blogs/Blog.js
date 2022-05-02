@@ -29,7 +29,7 @@ const Blog = () => {
                 <p>noSql are horizontally scalable</p>
 
             </div>
-            <div>
+            <div className='col-12 col-sm-12 col-md-6 col-lg-6  shadow-lg mt-3'>
                 <h2>When should you use nodejs and when should you use mongodb</h2>
                 <h4>Node Js:</h4>
                 <p>Node Js is a Javascript Runtime Environment.Basially we are using node js for server side Developement.We are for connect database client side to server side when we are using node js.</p>

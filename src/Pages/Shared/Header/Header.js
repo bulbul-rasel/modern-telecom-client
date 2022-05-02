@@ -22,8 +22,12 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className='me-auto'>
                         <Nav className='me-auto'>
+
+                        </Nav>
+                        <Nav>
                             <Nav.Link className='mt-2' as={Link} to="blogs">Blogs</Nav.Link>
                             <Nav.Link className='mt-2' as={Link} to="subscribe">Subscribe</Nav.Link>
+
                             {
                                 user ?
                                     <Nav.Link className='mt-2' as={Link} to="addProduct">Add Product</Nav.Link>
@@ -49,8 +53,9 @@ const Header = () => {
                                     <Nav.Link className='mt-2' as={Link} to="login">
                                         Login
                                     </Nav.Link>}
+
+                            <p className='text-white mt-3'>{user?.email}</p>
                         </Nav>
-                        <p className='text-white mt-3'>{user?.email}</p>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
