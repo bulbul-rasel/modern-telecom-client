@@ -20,13 +20,10 @@ const Header = () => {
                         <img style={{ width: '80px' }} src={logo} alt="" />Modern Telecom
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            {/* <Nav.Link href="home#products">Products</Nav.Link> */}
-                            <Nav.Link as={Link} to="blog">Blogs</Nav.Link>
-                        </Nav>
-                        <Nav>
-                            <Nav.Link className='mt-2' as={Link} to="subscribe">Subscribe</Nav.Link>
+                    <Navbar.Collapse id="responsive-navbar-nav" className='me-auto'>
+                        <Nav className='me-auto'>
+                            <Nav.Link className='mt-2' as={Link} to="blogs">Blogs</Nav.Link>
+                            {/* <Nav.Link className='mt-2' as={Link} to="subscribe">Subscribe</Nav.Link> */}
                             {
                                 user ?
                                     <Nav.Link className='mt-2' as={Link} to="addProduct">Add Product</Nav.Link>
