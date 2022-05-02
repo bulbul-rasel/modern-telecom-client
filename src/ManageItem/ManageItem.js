@@ -9,7 +9,7 @@ const ManageItem = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://guarded-plains-52968.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -18,7 +18,7 @@ const ManageItem = () => {
         const proceed = window.confirm('Are you sure for delete?');
         if (proceed) {
             (async () => {
-                const { data } = await axios.delete(`http://localhost:5000/products/${id}`);
+                const { data } = await axios.delete(`https://guarded-plains-52968.herokuapp.com/products/${id}`);
 
                 if (!data.success) return toast.error(data.error)
 

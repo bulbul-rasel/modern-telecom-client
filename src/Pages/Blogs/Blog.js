@@ -29,6 +29,14 @@ const Blog = () => {
                 <p>noSql are horizontally scalable</p>
 
             </div>
+            <div>
+                <h2>When should you use nodejs and when should you use mongodb</h2>
+                <h4>Node Js:</h4>
+                <p>Node Js is a Javascript Runtime Environment.Basially we are using node js for server side Developement.We are for connect database client side to server side when we are using node js.</p>
+
+                <h4>Mongodb:</h4>
+                <p>MongoDB makes it easy for developers to store structured or unstructured data.Mongodb is Stored Data in Json Format.MongoDB can also handle high volume and can scale both vertically or horizontally to accommodate large data loads.</p>
+            </div>
         </div>
     );
 };

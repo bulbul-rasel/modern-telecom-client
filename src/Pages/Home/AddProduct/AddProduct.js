@@ -23,7 +23,7 @@ const AddProduct = () => {
             sname: event.target.sname.value,
 
         };
-        const { data } = await axios.post("http://localhost:5000/products", product);
+        const { data } = await axios.post("https://guarded-plains-52968.herokuapp.com/products", product);
         if (!data.success) {
             return toast.error(data.error)
         }

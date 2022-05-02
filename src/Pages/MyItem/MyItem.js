@@ -16,7 +16,7 @@ const MyItem = () => {
     useEffect(() => {
         const myItem = async () => {
             const email = user?.email;
-            const url = `http://localhost:5000/myitem?email=${email}`
+            const url = `https://guarded-plains-52968.herokuapp.com/myitem?email=${email}`
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -40,7 +40,7 @@ const MyItem = () => {
         const proceed = window.confirm('Are you sure for delete?');
         if (proceed) {
             (async () => {
-                const { data } = await axios.delete(`http://localhost:5000/products/${id}`);
+                const { data } = await axios.delete(`https://guarded-plains-52968.herokuapp.com/products/${id}`);
 
                 if (!data.success) return toast.error(data.error)
 

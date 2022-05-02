@@ -23,7 +23,7 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav" className='me-auto'>
                         <Nav className='me-auto'>
                             <Nav.Link className='mt-2' as={Link} to="blogs">Blogs</Nav.Link>
-                            {/* <Nav.Link className='mt-2' as={Link} to="subscribe">Subscribe</Nav.Link> */}
+                            <Nav.Link className='mt-2' as={Link} to="subscribe">Subscribe</Nav.Link>
                             {
                                 user ?
                                     <Nav.Link className='mt-2' as={Link} to="addProduct">Add Product</Nav.Link>
