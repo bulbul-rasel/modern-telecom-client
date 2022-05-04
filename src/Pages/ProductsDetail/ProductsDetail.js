@@ -7,37 +7,49 @@ import useProductDetail from '../hookes/useProductDetail';
 
 const ProductsDetail = () => {
     const { productId } = useParams();
-    const [product] = useProductDetail(productId);
-    const [products, setProducts] = useState();
-    const [quantity, setQuantity] = useState({})
+    // const [product] = useProductDetail(productId);
+    const [product, setProduct] = useState({});
+    const [newQuantity, setNewQuantity] = useState(0)
+    console.log(newQuantity);
+
+    useEffect(() => {
+        const url = `https://guarded-plains-52968.herokuapp.com/product/${productId}`;
+        console.log(url);
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setProduct(data)
+                setNewQuantity(data.quantity)
+                console.log(data.quantity);
+            })
+    }, [productId])
 
     const handleDelivered = () => {
-        const newQuantity = parseInt(product.quantity) - 1;
-        console.log(newQuantity);
-        const updateQuantity = { newQuantity };
-        console.log(updateQuantity);
+        const updatedQuantity = +newQuantity - 1;
+        console.log(updatedQuantity);
+        setNewQuantity(updatedQuantity)
+
         const url = `https://guarded-plains-52968.herokuapp.com/product/${productId}`;
         fetch(url, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updateQuantity)
+            body: JSON.stringify({ updatedQuantity })
         })
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
                 toast('Delivered successfully!!!');
-                // event.target.reset();
-                setQuantity(parseInt(newQuantity))
             })
     }
 
     const handleUpdate = (event) => {
         event.preventDefault();
-        const quantity = event.target.name.value;
-        const { updateQuantity } = quantity;
-        console.log(updateQuantity);
+        const stock = event.target.name.value;
+        const updatedQuantity = newQuantity + parseInt(stock);
+        setNewQuantity(updatedQuantity);
 
         const url = `https://guarded-plains-52968.herokuapp.com/product/${productId}`;
         fetch(url, {
@@ -45,7 +57,7 @@ const ProductsDetail = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updateQuantity)
+            body: JSON.stringify({ updatedQuantity })
         })
             .then(res => res.json())
             .then(data => {
@@ -65,7 +77,7 @@ const ProductsDetail = () => {
                     <h4 className='title-lr'> Name: {product.name}</h4>
                     <p>Description: {product.description}</p>
                     <p>Price: {product.price}</p>
-                    <p>Quantity: {product.quantity}</p>
+                    <p>Quantity: {newQuantity}</p>
                     <p>Supplier Name: {product.sname}</p>
                     <Button onClick={handleDelivered} className='mx-auto w-100 rounded-pill' variant="" type="submit">
                         Delivered
