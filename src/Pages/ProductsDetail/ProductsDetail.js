@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 import useProductDetail from '../hookes/useProductDetail';
 
 const ProductsDetail = () => {
@@ -10,7 +12,8 @@ const ProductsDetail = () => {
     const [quantity, setQuantity] = useState({})
 
     const handleDelivered = () => {
-        const newQuantity = parseInt(quantity) - 1;
+        const newQuantity = parseInt(product.quantity) - 1;
+        console.log(newQuantity);
         const updateQuantity = { newQuantity };
         console.log(updateQuantity);
         const url = `https://guarded-plains-52968.herokuapp.com/product/${productId}`;
@@ -24,15 +27,16 @@ const ProductsDetail = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                alert('users added successfully!!!');
+                toast('Delivered successfully!!!');
                 // event.target.reset();
+                setQuantity(parseInt(newQuantity))
             })
     }
 
     const handleUpdate = (event) => {
         event.preventDefault();
         const quantity = event.target.name.value;
-        const updateQuantity = { quantity };
+        const { updateQuantity } = quantity;
         console.log(updateQuantity);
 
         const url = `https://guarded-plains-52968.herokuapp.com/product/${productId}`;
@@ -46,7 +50,7 @@ const ProductsDetail = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                alert('quantity update successfully!!!');
+                toast('quantity update successfully!!!');
                 event.target.reset();
             })
     }
@@ -83,6 +87,7 @@ const ProductsDetail = () => {
                     </Form>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
