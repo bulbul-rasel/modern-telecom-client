@@ -5,12 +5,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import ulogo from '../../../images/ulogo.png'
 import flogo from '../../../images/facebook.png'
 import ilogo from '../../../images/ilogo.png'
+import { Button } from 'react-bootstrap';
 
 const Subscribe = () => {
-    const [agree, setAgree] = useState(false);
     const handleCheckout = (event) => {
         event.preventDefault();
-        toast('Thanks for giving feedback');
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const feedback = event.target.feedback.value;
+        toast('Thanks for giving feedback', name, email, feedback);
+        event.target.reset()
     }
 
     return (
@@ -20,30 +24,21 @@ const Subscribe = () => {
                 <form onSubmit={handleCheckout}>
                     <input
                         className=' '
-                        type="text" placeholder='Enter your name' required />
+                        type="text" name='name' placeholder='Enter your name' required />
                     <input
                         className=' '
                         type="email" name="email" id=""
                         placeholder='Please Enter Email' required />
 
                     <textarea
-                        className=' w-100' type="text-area"
+                        className=' w-100' type="text-area" name='feedback'
                         placeholder='Give your Feedback' required />
 
 
+                    <Button className='mx-auto w-100 rounded-pill' variant="" type="submit">
+                        Submit Feedback
+                    </Button>
 
-                    <input
-                        onClick={() => setAgree(!agree)}
-                        type="checkbox" name="terms" id="terms" />
-
-                    <label
-                        className={agree ? "" : "text-info"}
-                        htmlFor="terms"> Accept Terms and Condition?</label>
-                    <input
-                        disabled={!agree}
-                        className='w-100 rounded-pill btn btn-info'
-                        type="submit"
-                        value="Submit Feedback" required />
                 </form>
 
 

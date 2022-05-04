@@ -28,7 +28,7 @@ const Footer = () => {
                     <p>Privacy</p>
                 </div>
                 <div className='col-sm-6 col-md-3 col-lg-3 my-3'>
-                    <h4 className=''>Connect Me </h4>
+                    <h4 className=''>Connect Us </h4>
                     <div className='mb-3'>
                         <img style={{ width: "40px" }} src={ulogo} className='rounded-pill ' alt="" />
                         <img style={{ width: "30px" }} src={flogo} className='rounded-pill mx-3' alt="" />
@@ -38,7 +38,7 @@ const Footer = () => {
                     <p>📞 +8801234567890</p>
                 </div>
             </div>
-            <p className='text-center mt-5 text-info'>  &copy; copyright {year} All Rights Reserve Modern Telecom</p>
+            <p className='text-center pb-5 text-white'>  &copy; copyright {year} All Rights Reserve Modern Telecom</p>
 
         </div>
     );
