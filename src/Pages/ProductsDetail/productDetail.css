@@ -1,0 +1,21 @@
+.stockOut {
+    outline: 0;
+    font-size: 18px;
+    padding: 10px 30px;
+    background-color: red;
+    color: white;
+    border: 4px solid red;
+    cursor: pointer;
+    transition: .3s linear;
+    border-radius: 7px;
+}
+
+
+.stockOut:hover {
+    background-color: transparent;
+    color: red;
+}
+
+.text {
+    color: rgb(19, 216, 157);
+}

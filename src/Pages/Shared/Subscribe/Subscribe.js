@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
-import ulogo from '../../../images/ulogo.png'
-import flogo from '../../../images/facebook.png'
-import ilogo from '../../../images/ilogo.png'
+import store from '../../../images/store.png'
+
 import { Button } from 'react-bootstrap';
 
 const Subscribe = () => {
@@ -20,7 +19,7 @@ const Subscribe = () => {
     return (
         <div id='subscribe' className='row container mx-auto w-100'>
             <div className='register-form col-md-6 col-sm-12'>
-                <h2 className='text-info text-center mb-3'>Give Your Feedback</h2>
+                <h2 className='text-info text-center mb-3'>Booked Product</h2>
                 <form onSubmit={handleCheckout}>
                     <input
                         className=' '
@@ -32,38 +31,23 @@ const Subscribe = () => {
 
                     <textarea
                         className=' w-100' type="text-area" name='feedback'
-                        placeholder='Give your Feedback' required />
+                        placeholder='Give your Product Description' required />
 
 
                     <Button className='mx-auto w-100 rounded-pill' variant="" type="submit">
-                        Submit Feedback
+                        Booked
                     </Button>
 
                 </form>
 
 
             </div>
-            <div className=' col-md-6 col-sm-12'>
-                <h2 className='text-info text-center'>Please Subscribe On</h2>
+            <div className=' col-md-6 col-sm-12 '>
+                <h2 className='text-info text-center '>Get App On</h2>
+                <div className='d-flex justify-content-center align-items-center'>
+                    <img style={{ width: "300px" }} src={store} alt="" />
 
-                <button
-                    className='btn btn-primary w-100 rounded-pill my-3'>
-                    <img style={{ width: "40px" }} src={ulogo} className='rounded-pill ' alt="" />
-                    YouTube
-                </button>
-
-                <button
-                    className='btn btn-primary w-100 rounded-pill my-2'>
-                    <img style={{ width: "30px" }} src={flogo} alt="" />
-                    FaceBook
-                </button>
-
-                <button
-                    className='btn btn-primary w-100 rounded-pill my-3'>
-                    <img style={{ width: "30px" }} src={ilogo} alt="" />
-                    Instagram
-                </button>
-
+                </div>
             </div>
             <ToastContainer></ToastContainer>
         </div>

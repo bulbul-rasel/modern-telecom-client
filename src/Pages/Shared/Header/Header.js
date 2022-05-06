@@ -26,7 +26,6 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link className='mt-2' as={Link} to="blogs">Blogs</Nav.Link>
-                            <Nav.Link className='mt-2' as={Link} to="subscribe">Subscribe</Nav.Link>
 
                             {
                                 user ?

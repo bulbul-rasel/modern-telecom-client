@@ -3,11 +3,11 @@ import { Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import useProductDetail from '../hookes/useProductDetail';
+import './productDetail.css'
+
 
 const ProductsDetail = () => {
     const { productId } = useParams();
-    // const [product] = useProductDetail(productId);
     const [product, setProduct] = useState({});
     const [newQuantity, setNewQuantity] = useState(0)
     console.log(newQuantity);
@@ -47,8 +47,8 @@ const ProductsDetail = () => {
 
     const handleUpdate = (event) => {
         event.preventDefault();
-        const stock = event.target.name.value;
-        const updatedQuantity = newQuantity + parseInt(stock);
+        const quantity = event.target.name.value;
+        const updatedQuantity = newQuantity + parseInt(quantity);
         setNewQuantity(updatedQuantity);
 
         const url = `https://guarded-plains-52968.herokuapp.com/product/${productId}`;
@@ -62,7 +62,7 @@ const ProductsDetail = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                toast('quantity update successfully!!!');
+                toast('Quantity update successfully!!!');
                 event.target.reset();
             })
     }
@@ -79,9 +79,12 @@ const ProductsDetail = () => {
                     <p>Price: {product.price}</p>
                     <p>Quantity: {newQuantity}</p>
                     <p>Supplier Name: {product.sname}</p>
-                    <Button onClick={handleDelivered} className='mx-auto w-100 rounded-pill' variant="" type="submit">
+                    {newQuantity ? <Button onClick={handleDelivered} className='mx-auto w-100 rounded-pill' variant="" type="submit">
                         Delivered
+                    </Button> : <Button className='mx-auto w-100 rounded-pill stockOut' variant="" type="submit">
+                        Stock Out
                     </Button>
+                    }
                 </div>
 
                 <div className='product shadow-lg p-3 col-12 col-sm-12 col-md-6 col-lg-6'>
