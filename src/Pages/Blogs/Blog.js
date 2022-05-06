@@ -37,6 +37,11 @@ const Blog = () => {
                 <h4>Mongodb:</h4>
                 <p>MongoDB makes it easy for developers to store structured or unstructured data.Mongodb is Stored Data in Json Format.MongoDB can also handle high volume and can scale both vertically or horizontally to accommodate large data loads.</p>
             </div>
+            <div className='col-12 col-sm-12 col-md-6 col-lg-6  shadow-lg mt-3'>
+                <h2>What is the purpose of jwt and how does it work?</h2>
+                <p> JWT stands for JSON Web Token, it is an open standard used to share security information between  client and  server.</p>
+                <p>JWT are differentiae from other web tokens in that they contain a set of thread. Thread are used to send information between server and client. What thread claims are depends on the use case at working position. For example, a thread may assert who issued the token, how long it is valid for, and what permissions the client has been granted.</p>
+            </div>
         </div>
     );
 };

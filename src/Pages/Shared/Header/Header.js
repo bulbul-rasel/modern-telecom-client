@@ -27,21 +27,22 @@ const Header = () => {
                         <Nav>
                             <Nav.Link className='mt-2' as={Link} to="blogs">Blogs</Nav.Link>
 
+
                             {
                                 user ?
-                                    <Nav.Link className='mt-2' as={Link} to="addProduct">Add Product</Nav.Link>
+                                    <Nav.Link className='mt-2' as={Link} to="myItem">My Items</Nav.Link>
                                     :
                                     ""
                             }
                             {
                                 user ?
-                                    <Nav.Link className='mt-2' as={Link} to="myItem">My Item</Nav.Link>
+                                    <Nav.Link className='mt-2' as={Link} to="manageItem">Manage Items</Nav.Link>
                                     :
                                     ""
                             }
                             {
                                 user ?
-                                    <Nav.Link className='mt-2' as={Link} to="manageItem">Manage Item</Nav.Link>
+                                    <Nav.Link className='mt-2' as={Link} to="addProduct">Add Item</Nav.Link>
                                     :
                                     ""
                             }

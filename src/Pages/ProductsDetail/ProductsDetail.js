@@ -97,7 +97,7 @@ const ProductsDetail = () => {
                         </Form.Group>
 
                         <Button className='mx-auto w-100 rounded-pill' variant="" type="submit">
-                            Quantity update
+                            Re Stock
                         </Button>
                     </Form>
                 </div>

@@ -15,7 +15,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Products></Products>
-            <button onClick={handleRoute} className='btn mx-auto my-3 text-center d-flex justify-content-center'>All Product</button>
+            <button onClick={handleRoute} className='btn mx-auto my-3 text-center d-flex justify-content-center'>Manage Inventories</button>
             <Subscribe></Subscribe>
         </div>
     );
