@@ -77,7 +77,7 @@ const ProductsDetail = () => {
                     <h4 className='title-lr'> Name: {product.name}</h4>
                     <p>Description: {product.description}</p>
                     <p>Price: {product.price}</p>
-                    <p>Quantity: {newQuantity}</p>
+                    {newQuantity ? <p> Quantity: {newQuantity}</p> : <p>  Quantity: Sold Out</p>}
                     <p>Supplier Name: {product.sname}</p>
                     {newQuantity ? <Button onClick={handleDelivered} className='mx-auto w-100 rounded-pill' variant="" type="submit">
                         Delivered

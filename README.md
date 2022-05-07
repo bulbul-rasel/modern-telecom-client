@@ -19,11 +19,11 @@ Live Firebase hosting link: [https://modern-telecom-client.web.app/](https://mod
 **• Firebase Authentication** <br/>
 **• Bootstrap 5** <br/>
 **• react-router-dom** <br/>
-**• react-firebase-hooks** <br/>
-**• Axios**
-**• Express**
-**• MongoDB**
-**• Nodemon**
-**• cors**
+**• react-firebase-hooks** 
+**• Axios** <br/>
+**• Express** <br/>
+**• MongoDB** <br/>
+**• Nodemon** <br/>
+**• cors** <br/>
 **• dovenv**
 
