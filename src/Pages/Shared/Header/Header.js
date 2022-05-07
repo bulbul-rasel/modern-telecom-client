@@ -25,6 +25,7 @@ const Header = () => {
 
                         </Nav>
                         <Nav>
+                            <Nav.Link className='mt-2' as={Link} to="home">Home</Nav.Link>
                             <Nav.Link className='mt-2' as={Link} to="blogs">Blogs</Nav.Link>
 
 
