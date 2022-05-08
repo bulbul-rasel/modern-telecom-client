@@ -77,13 +77,17 @@ const ProductsDetail = () => {
                     <h4 className='title-lr'> Name: {product.name}</h4>
                     <p>Description: {product.description}</p>
                     <p>Price: {product.price}</p>
-                    {newQuantity ? <p> Quantity: {newQuantity}</p> : <p className='text-danger'>  Quantity: Sold Out</p>}
+                    <p> Quantity: {newQuantity}</p>
                     <p>Supplier Name: {product.sname}</p>
-                    {newQuantity ? <Button onClick={handleDelivered} className='mx-auto w-100 rounded-pill' variant="" type="submit">
-                        Delivered
-                    </Button> : <Button className='mx-auto w-100 rounded-pill stockOut' variant="" type="submit">
-                        Stock Out
-                    </Button>
+                    {
+                        newQuantity ? <p className='text-success text-center fw-bold'>Stock In</p> : <p className='text-danger fw-bold text-center'> Sold Out</p>
+                    }
+                    {
+                        newQuantity ? <Button onClick={handleDelivered} className='mx-auto w-100 rounded-pill' variant="" type="submit">
+                            Delivered
+                        </Button> : <Button className='mx-auto w-100 rounded-pill stockOut' variant="" type="submit">
+                            Stock Out
+                        </Button>
                     }
                 </div>
 
